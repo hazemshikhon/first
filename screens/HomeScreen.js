@@ -36,7 +36,7 @@ export default class HomeScreen extends React.Component {
 
         <View style={{paddingTop:50}}>
 
-            <Text style={{ display:this.state.validity , textAlign:'center'}} > Hello </Text>
+            <Text style={{ display:this.state.validity , textAlign:'center' , color:'red'}} > Hello </Text>
 
             <TouchableOpacity
                 style={{ backgroundColor:'#9B1ADB', borderRadius:13, padding:10, margin:10  }}
