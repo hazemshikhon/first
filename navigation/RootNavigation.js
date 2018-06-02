@@ -2,16 +2,44 @@ import React from 'react';
 import { Notifications } from 'expo';
 import { createSwitchNavigator } from 'react-navigation';
 
-import MainTabNavigator from './MainTabNavigator';
+import { StackNavigator } from 'react-navigation';
+
+
 import registerForPushNotificationsAsync from '../api/registerForPushNotificationsAsync';
+import SingleProductScreen from '../screens/SingleProductScreen';
+import HomeScreen from '../screens/HomeScreen';
+import LoginScreen from '../screens/LoginScreen';
+import MainTabNavigator from './MainTabNavigator';
 
-const AppNavigator = createSwitchNavigator({
-  // You could add another route here for authentication.
-  // Read more at https://reactnavigation.org/docs/en/auth-flow.html
-  Main: MainTabNavigator,
-});
 
-export default class RootNavigation extends React.Component {
+//import Header from '../components/Header';
+
+const RootStackNavigator = StackNavigator(
+  {
+
+      Login: {
+            screen: LoginScreen,
+        },
+
+      SingleProduct:
+      {
+          screen:SingleProductScreen
+      },
+      Tabs: {
+            screen: MainTabNavigator,
+        },
+
+  },
+  {
+        navigationOptions: () => ({
+            headerTitleStyle: {
+                fontWeight: 'normal',
+            },
+        }),
+    }
+);
+
+export default class RootNavigator extends React.Component {
   componentDidMount() {
     this._notificationSubscription = this._registerForPushNotifications();
   }
@@ -21,7 +49,7 @@ export default class RootNavigation extends React.Component {
   }
 
   render() {
-    return <AppNavigator />;
+    return <RootStackNavigator />;
   }
 
   _registerForPushNotifications() {

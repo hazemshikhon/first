@@ -1,174 +1,140 @@
 import React from 'react';
-import {
-  Image,
-  Platform,
-  ScrollView,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  View,
-} from 'react-native';
-import { WebBrowser } from 'expo';
-
-import { MonoText } from '../components/StyledText';
-
+import { Text, View,TouchableOpacity, StyleSheet, Button , Platform, TextInput , Image , FlatList , List , ListItem , ScrollView } from 'react-native';
+import { Ionicons } from '@expo/vector-icons';
 export default class HomeScreen extends React.Component {
 
-    state = {
-        username: '',
-        validity:'false' ,
-        color: 'red'
-    }
+ render() {
 
+     _keyExtractor1 = (item, index) => item.flower1;
+     _keyExtractor2 = (item, index) => item.flower2;
+     _keyExtractor3 = (item, index) => item.flower3;
 
-  static navigationOptions = {
-    header: null,
+var flower1 = [
+    {key1:'this pizza very good', name1:'بيتزا مشكل جبن' , price1:'10'},
+    {key1:'this pizza very good' , name1:'بيتزا مشكل لحوم' , price1:'20'},
+    {key1:'this pizza very good' , name1:'بيتزا خضار' , price1:'5'}
+];
 
+var flower2 = [
+    {key2:'this Crepe very good' , name2:'كريب مشكل جبن' , price2:'10' },
+    {key2:'this Crepe very good' , name2:'كريب مشكل لحوم ' , price2:'20' },
+    {key2:'this Crepe very good' , name2:'كريب خضار' , price2:'5'}
+];
+var flower3 = [
+    {key3:'this sweets very good' , name3:'شيكولاته' , price3:'50'},
+    {key3:'this sweets very good' , name3:'مكسرات' , price3:'200'},
+    {key3:'this sweets very good' , name3:'كنافه' , price3:'100'}
+];
+return (
+<ScrollView style={{flexDirection: 'column'}}>
 
+    <View  style={{flexDirection: 'row' , marginTop:20}} >
+        <Ionicons
+              name='ios-arrow-dropright-circle-outline'
+              size={24}
+              color='#106234'
+              style={{marginLeft:10, padding:0, backgroundColor: 'transparent' }}/>
 
-  };
+        <Text style={{ marginLeft: 5, fontWeight: 'bold', color: '#555555', fontSize: 20 }}>
+            Pizza
+        </Text>
+    </View>
 
+    <FlatList
+        data={flower1}
+        horizontal={true}
+        showsHorizontalScrollIndicator={true}
+        style={{marginTop:50}}
+        keyExtractor={this._keyExtractor1}
+        renderItem={
+            ({item}) =>
+            <TouchableOpacity style={{flex:1 , margin:30}}
+             onPress={ () => this.props.navigation.navigate('SingleProduct', { name:item.name1, price:item.price1 , btn:'ORDER' }) }>
+            <Image source={require('../assets/images/one.jpg')}
+               style={{width: '85%', height: 140, borderRadius: 1, marginBottom: 9}} />
+                <Text style={{}}> {item.key1} </Text>
 
-  render() {
-    return (
+                </TouchableOpacity>
+        }
+        >
+        </FlatList>
 
+        <View  style={{flexDirection: 'row' , marginTop:20}} >
+            <Ionicons
+                  name='ios-arrow-dropright-circle-outline'
+                  size={24}
+                  color='#106234'
+                  style={{marginLeft:10, padding:0, backgroundColor: 'transparent' }}/>
 
+            <Text style={{ marginLeft: 5, fontWeight: 'bold', color: '#555555', fontSize: 20 }}>
+                Crepe
+            </Text>
+        </View>
 
-        <View style={{paddingTop:50}}>
+        <FlatList
+            data={flower2}
+            horizontal={true}
+            showsHorizontalScrollIndicator={true}
+            keyExtractor={this._keyExtractor2}
+            style={{ marginTop:10}}
+            renderItem={
+                ({item}) =>
+                <TouchableOpacity style={{flex:1 , margin:30}}
+                onPress={ () => this.props.navigation.navigate('SingleProduct', { name:item.name2, price:item.price2 , btn:'ORDER' }) }>
+                <Image source={require('../assets/images/two.jpg')}
+                   style={{width: '85%', height: 140, borderRadius: 1, marginBottom: 9}} />
+                    <Text style={{}}> {item.key2} </Text>
 
-            <Text style={{ display:this.state.validity , textAlign:'center' , color:'red'}} > Hello </Text>
+                    </TouchableOpacity>
+
+            }
+            >
+            </FlatList>
 
             <TouchableOpacity
-                style={{ backgroundColor:'#9B1ADB', borderRadius:13, padding:10, margin:10  }}
-                onPress={ () => this.setState( {validity:true}) }>
-                <Text style={{ color:'white' , textAlign:'center' , paddingTop:3}}>Hide </Text>
-                </TouchableOpacity>
+                style={{ backgroundColor:'#9B1ADB', borderRadius:13, padding:10, margin:10 , flex:.25 }}
+                onPress={ () => this.props.navigation.navigate('SingleProduct', { name:'x', price:'10 LE' , btn:'ORDER X' }) }>
+
+            <Text style={{ color:'white' , textAlign:'center' , paddingTop:3}}>Product X </Text>
+            </TouchableOpacity>
 
 
 
-        </View>
-    );
-  }
+            <View  style={{flexDirection: 'row' , marginTop:20}} >
+                <Ionicons
+                      name='ios-arrow-dropright-circle-outline'
+                      size={24}
+                      color='#106234'
+                      style={{marginLeft:10, padding:0, backgroundColor: 'transparent' }}/>
 
-  _maybeRenderDevelopmentModeWarning() {
-    if (__DEV__) {
-      const learnMoreButton = (
-        <Text onPress={this._handleLearnMorePress} style={styles.helpLinkText}>
-          Learn more
-        </Text>
-      );
+                <Text style={{ marginLeft: 5, fontWeight: 'bold', color: '#555555', fontSize: 20 }}>
+                    Sweets
+                </Text>
+            </View>
 
-      return (
-        <Text style={styles.developmentModeText}>
-          Development mode is enabled, your app will be slower but you can use useful development
-          tools. {learnMoreButton}
-        </Text>
-      );
-    } else {
-      return (
-        <Text style={styles.developmentModeText}>
-          You are not in development mode, your app will run at full speed.
-        </Text>
-      );
-    }
-  }
 
-  _handleLearnMorePress = () => {
-    WebBrowser.openBrowserAsync('https://docs.expo.io/versions/latest/guides/development-mode');
-  };
 
-  _handleHelpPress = () => {
-    WebBrowser.openBrowserAsync(
-      'https://docs.expo.io/versions/latest/guides/up-and-running.html#can-t-see-your-changes'
-    );
-  };
+            <FlatList
+                data={flower3}
+                horizontal={true}
+                showsHorizontalScrollIndicator={true}
+                style={{ marginTop:10 }}
+                keyExtractor={this._keyExtractor3}
+                renderItem={
+                    ({item}) =>
+                    <TouchableOpacity style={{flex:1 , margin:30}}
+                    onPress={ () => this.props.navigation.navigate('SingleProduct', { name:item.name3, price:item.price3 , btn:'ORDER' }) }>
+                    <Image source={require('../assets/images/three.jpg')}
+                       style={{width: '85%', height: 140, borderRadius: 1, marginBottom: 9}} />
+                        <Text style={{}}> {item.key3} </Text>
+
+                        </TouchableOpacity>
+
+                }
+                >
+                </FlatList>
+
+     </ScrollView>
+);
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-  },
-  developmentModeText: {
-    marginBottom: 20,
-    color: 'rgba(0,0,0,0.4)',
-    fontSize: 14,
-    lineHeight: 19,
-    textAlign: 'center',
-  },
-  contentContainer: {
-    paddingTop: 30,
-  },
-  welcomeContainer: {
-    alignItems: 'center',
-    marginTop: 10,
-    marginBottom: 20,
-  },
-  welcomeImage: {
-    width: 100,
-    height: 80,
-    resizeMode: 'contain',
-    marginTop: 3,
-    marginLeft: -10,
-  },
-  getStartedContainer: {
-    alignItems: 'center',
-    marginHorizontal: 50,
-  },
-  homeScreenFilename: {
-    marginVertical: 7,
-  },
-  codeHighlightText: {
-    color: 'rgba(96,100,109, 0.8)',
-  },
-  codeHighlightContainer: {
-    backgroundColor: 'rgba(0,0,0,0.05)',
-    borderRadius: 3,
-    paddingHorizontal: 4,
-  },
-  getStartedText: {
-    fontSize: 17,
-    color: 'rgba(96,100,109, 1)',
-    lineHeight: 24,
-    textAlign: 'center',
-  },
-  tabBarInfoContainer: {
-    position: 'absolute',
-    bottom: 0,
-    left: 0,
-    right: 0,
-    ...Platform.select({
-      ios: {
-        shadowColor: 'black',
-        shadowOffset: { height: -3 },
-        shadowOpacity: 0.1,
-        shadowRadius: 3,
-      },
-      android: {
-        elevation: 20,
-      },
-    }),
-    alignItems: 'center',
-    backgroundColor: '#fbfbfb',
-    paddingVertical: 20,
-  },
-  tabBarInfoText: {
-    fontSize: 17,
-    color: 'rgba(96,100,109, 1)',
-    textAlign: 'center',
-  },
-  navigationFilename: {
-    marginTop: 5,
-  },
-  helpContainer: {
-    marginTop: 15,
-    alignItems: 'center',
-  },
-  helpLink: {
-    paddingVertical: 15,
-  },
-  helpLinkText: {
-    fontSize: 14,
-    color: '#2e78b7',
-  },
-});
+}
