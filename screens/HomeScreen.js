@@ -2,7 +2,7 @@ import React from 'react';
 import { Text, View,TouchableOpacity, StyleSheet, Button , Platform, TextInput , Image , FlatList , List , ListItem , ScrollView } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import Colors from '../constants/Colors';
-
+import MyTouch from '../components/MyTouch';
 export default class HomeScreen extends React.Component {
 
  render() {
@@ -51,14 +51,8 @@ return (
         renderItem={
             ({item}) =>
 
-            <TouchableOpacity style={{flex:1 , margin:30 , marginLeft:10}}
-                onPress={ () => this.props.navigation.navigate('SingleProduct', { name:item.name1, price:item.price1 , btn:'ORDER' }) }>
+                <MyTouch type={2} name1={item.name1} photo1={item.photo1} price1={item.price1} key1={item.key1}/>
 
-                <Image source={item.photo1}
-                    style={{width: '85%', height: 140, borderRadius: 1, marginBottom: 9}} />
-                <Text style={{}}> {item.key1} </Text>
-
-            </TouchableOpacity>
         }
         >
         </FlatList>
@@ -83,13 +77,7 @@ return (
             style={{ marginTop:10}}
             renderItem={
                 ({item}) =>
-                <TouchableOpacity style={{flex:1 , margin:30 , marginLeft:10}}
-                onPress={ () => this.props.navigation.navigate('SingleProduct', { name:item.name2, price:item.price2 , btn:'ORDER' }) }>
-                <Image source={item.photo2}
-                   style={{width: '85%', height: 140, borderRadius: 1, marginBottom: 9}} />
-                    <Text style={{}}> {item.key2} </Text>
-
-                    </TouchableOpacity>
+                <MyTouch type={3} name2={item.name2} photo2={item.photo2} price2={item.price2} key2={item.key2}/>
             }
             >
             </FlatList>
@@ -108,8 +96,6 @@ return (
                 </Text>
             </View>
 
-
-
             <FlatList
                 data={flower3}
                 horizontal={true}
@@ -118,13 +104,8 @@ return (
                 keyExtractor={this._keyExtractor3}
                 renderItem={
                     ({item}) =>
-                    <TouchableOpacity style={{flex:1 , margin:30 , marginLeft:10}}
-                    onPress={ () => this.props.navigation.navigate('SingleProduct', { name:item.name3, price:item.price3 , btn:'ORDER' }) }>
-                    <Image source={item.photo3}
-                       style={{width: '85%', height: 140, borderRadius: 1, marginBottom: 9}} />
-                        <Text style={{}}> {item.key3} </Text>
+                    <MyTouch type={4} name3={item.name3} photo3={item.photo3} price3={item.price3} key3={item.key3}/>
 
-                        </TouchableOpacity>
                 }
                 >
                 </FlatList>
