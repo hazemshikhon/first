@@ -43,7 +43,7 @@ else {
 
     render() {
         return (
-            <View style={{flex:1 , flexDirection:'column', justifyContent:'center', alignItems:'center' }}>
+            <View style={{flex:1 , flexDirection:'column', justifyContent:'center', alignItems:'center' , paddingTop: Platform.OS == 'ios' ? 20 : 20}}>
 
 
                 <Image style={{flex:1 ,height:'20%' , width:'100%' , resizeMode:'cover' }}
