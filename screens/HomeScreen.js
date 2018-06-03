@@ -16,9 +16,9 @@ var flower1 = [
 ];
 
 var flower2 = [
-    {key2:'this Crepe very good' , name2:'كريب مشكل جبن' , price2:'10' },
-    {key2:'this Crepe very good' , name2:'كريب مشكل لحوم ' , price2:'20' },
-    {key2:'this Crepe very good' , name2:'كريب خضار' , price2:'5'}
+    {key2:'this Crepe very good' , name2:'كريب مشكل جبن' , price2:'10' , photo:require('../assets/images/one.jpg')},
+    {key2:'this Crepe very good' , name2:'كريب مشكل لحوم ' , price2:'20' , photo:require('../assets/images/two.jpg')},
+    {key2:'this Crepe very good' , name2:'كريب خضار' , price2:'5' , photo:require('../assets/images/three.jpg')}
 ];
 var flower3 = [
     {key3:'this sweets very good' , name3:'شيكولاته' , price3:'50'},
@@ -32,7 +32,7 @@ return (
         <Ionicons
               name='ios-arrow-dropright-circle-outline'
               size={24}
-              color='#106234'
+              color='#ff6600'
               style={{marginLeft:10, padding:0, backgroundColor: 'transparent' }}/>
 
         <Text style={{ marginLeft: 5, fontWeight: 'bold', color: '#555555', fontSize: 20 }}>
@@ -63,7 +63,7 @@ return (
             <Ionicons
                   name='ios-arrow-dropright-circle-outline'
                   size={24}
-                  color='#106234'
+                  color='#ff6600'
                   style={{marginLeft:10, padding:0, backgroundColor: 'transparent' }}/>
 
             <Text style={{ marginLeft: 5, fontWeight: 'bold', color: '#555555', fontSize: 20 }}>
@@ -81,7 +81,7 @@ return (
                 ({item}) =>
                 <TouchableOpacity style={{flex:1 , margin:30}}
                 onPress={ () => this.props.navigation.navigate('SingleProduct', { name:item.name2, price:item.price2 , btn:'ORDER' }) }>
-                <Image source={require('../assets/images/two.jpg')}
+                <Image source={item.photo}
                    style={{width: '85%', height: 140, borderRadius: 1, marginBottom: 9}} />
                     <Text style={{}}> {item.key2} </Text>
 
@@ -91,20 +91,13 @@ return (
             >
             </FlatList>
 
-            <TouchableOpacity
-                style={{ backgroundColor:'#9B1ADB', borderRadius:13, padding:10, margin:10 , flex:.25 }}
-                onPress={ () => this.props.navigation.navigate('SingleProduct', { name:'x', price:'10 LE' , btn:'ORDER X' }) }>
-
-            <Text style={{ color:'white' , textAlign:'center' , paddingTop:3}}>Product X </Text>
-            </TouchableOpacity>
-
 
 
             <View  style={{flexDirection: 'row' , marginTop:20}} >
                 <Ionicons
                       name='ios-arrow-dropright-circle-outline'
                       size={24}
-                      color='#106234'
+                      color='#ff6600'
                       style={{marginLeft:10, padding:0, backgroundColor: 'transparent' }}/>
 
                 <Text style={{ marginLeft: 5, fontWeight: 'bold', color: '#555555', fontSize: 20 }}>

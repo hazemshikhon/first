@@ -90,13 +90,13 @@ else {
                 <View style={{flex:1 , flexDirection:'column' , justifyContent:'center' , alignItems:'center'  }}>
                     <View style={{flex:1 , flexDirection:'row' , justifyContent:'center' , alignItems:'center'  }}>
                     <TouchableOpacity
-                        style={{ backgroundColor:'#9B1ADB', borderRadius:13, padding:10, margin:10 , flex:.5 }}
+                        style={{ backgroundColor:'#ff6600', borderRadius:13, padding:10, margin:10 , flex:.5 }}
                         onPress={ () => this.loginUser() }>
 
                     <Text style={{ color:'white' , textAlign:'center' }}>Login</Text>
                     </TouchableOpacity>
                     <TouchableOpacity
-                        style={{ backgroundColor:'#9B1ADB', borderRadius:13, padding:10, margin:10 , flex:.5 }}
+                        style={{ backgroundColor:'#ff6600', borderRadius:13, padding:10, margin:10 , flex:.5 }}
                         onPress={ () => this.props.navigation.navigate('Signup', { }) }>
 
                     <Text style={{ color:'white' , textAlign:'center'}}>Create</Text>
@@ -109,7 +109,7 @@ else {
 
                     <View style={{flex:1 , flexDirection:'row' , justifyContent:'center' , alignItems:'center' , width:'92%' }}>
                         <TouchableOpacity
-                            style={{ backgroundColor:'#9B1ADB', borderRadius:13, padding:15, flex:1 , width:'100%'}}
+                            style={{ backgroundColor:'#ff6600', borderRadius:13, padding:15, flex:1 , width:'100%'}}
                             onPress={ () => this.loginUser() }>
 
                         <Text style={{ color:'white' , textAlign:'center' }}>Enter As Guest</Text>

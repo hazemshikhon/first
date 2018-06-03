@@ -10,7 +10,7 @@ import SingleProductScreen from '../screens/SingleProductScreen';
 import HomeScreen from '../screens/HomeScreen';
 import LoginScreen from '../screens/LoginScreen';
 import MainTabNavigator from './MainTabNavigator';
-
+import Header from '../components/Header';
 
 //import Header from '../components/Header';
 
@@ -31,11 +31,12 @@ const RootStackNavigator = StackNavigator(
 
   },
   {
-        navigationOptions: () => ({
-            headerTitleStyle: {
-                fontWeight: 'normal',
-            },
-        }),
+      navigationOptions: ({ navigation }) => ({
+      header: <Header nav={navigation} currentRoute={navigation.state.routeName} />,
+    headerTitleStyle: {
+      fontWeight: 'normal',
+    },
+  }),
     }
 );
 

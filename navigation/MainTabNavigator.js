@@ -39,14 +39,14 @@ navigationOptions: ({ navigation }) => ({
           case 'Settings':
             iconName =
               Platform.OS === 'ios' ? `ios-options${focused ? '' : '-outline'}` : 'md-options';
-          
+
         }
         return (
           <Ionicons
             name={iconName}
             size={28}
             style={{ marginBottom: -3 }}
-            color={focused ? Colors.tabIconSelected : Colors.tabIconDefault}/>
+            color={focused ? '#ff6600' : Colors.tabIconDefault}/>
         );
       },
     }),
@@ -57,7 +57,7 @@ navigationOptions: ({ navigation }) => ({
     showLabel: true,
     tabBarOptions: {
         labelStyle: {
-            color: '#B63FF2',
+            color: 'black',
         },
     }
   }
