@@ -33,7 +33,7 @@ return (
               name='ios-arrow-dropright-circle-outline'
               size={24}
               color='#ff6600'
-              style={{marginLeft:10, padding:0, backgroundColor: 'transparent' }}/>
+              style={{marginLeft:9, padding:0, backgroundColor: 'transparent' }}/>
 
         <Text style={{ marginLeft: 5, fontWeight: 'bold', color: '#555555', fontSize: 20 }}>
             Pizza
@@ -44,11 +44,11 @@ return (
         data={flower1}
         horizontal={true}
         showsHorizontalScrollIndicator={true}
-        style={{marginTop:50}}
+        style={{marginTop:10}}
         keyExtractor={this._keyExtractor1}
         renderItem={
             ({item}) =>
-            <TouchableOpacity style={{flex:1 , margin:30}}
+            <TouchableOpacity style={{flex:1 , margin:30 , marginLeft:10}}
              onPress={ () => this.props.navigation.navigate('SingleProduct', { name:item.name1, price:item.price1 , btn:'ORDER' }) }>
             <Image source={require('../assets/images/one.jpg')}
                style={{width: '85%', height: 140, borderRadius: 1, marginBottom: 9}} />
@@ -64,7 +64,7 @@ return (
                   name='ios-arrow-dropright-circle-outline'
                   size={24}
                   color='#ff6600'
-                  style={{marginLeft:10, padding:0, backgroundColor: 'transparent' }}/>
+                  style={{marginLeft:9, padding:0, backgroundColor: 'transparent' }}/>
 
             <Text style={{ marginLeft: 5, fontWeight: 'bold', color: '#555555', fontSize: 20 }}>
                 Crepe
@@ -79,7 +79,7 @@ return (
             style={{ marginTop:10}}
             renderItem={
                 ({item}) =>
-                <TouchableOpacity style={{flex:1 , margin:30}}
+                <TouchableOpacity style={{flex:1 , margin:30 , marginLeft:10}}
                 onPress={ () => this.props.navigation.navigate('SingleProduct', { name:item.name2, price:item.price2 , btn:'ORDER' }) }>
                 <Image source={item.photo}
                    style={{width: '85%', height: 140, borderRadius: 1, marginBottom: 9}} />
@@ -98,7 +98,7 @@ return (
                       name='ios-arrow-dropright-circle-outline'
                       size={24}
                       color='#ff6600'
-                      style={{marginLeft:10, padding:0, backgroundColor: 'transparent' }}/>
+                      style={{marginLeft:9, padding:0, backgroundColor: 'transparent' }}/>
 
                 <Text style={{ marginLeft: 5, fontWeight: 'bold', color: '#555555', fontSize: 20 }}>
                     Sweets
@@ -115,7 +115,7 @@ return (
                 keyExtractor={this._keyExtractor3}
                 renderItem={
                     ({item}) =>
-                    <TouchableOpacity style={{flex:1 , margin:30}}
+                    <TouchableOpacity style={{flex:1 , margin:30 , marginLeft:10}}
                     onPress={ () => this.props.navigation.navigate('SingleProduct', { name:item.name3, price:item.price3 , btn:'ORDER' }) }>
                     <Image source={require('../assets/images/three.jpg')}
                        style={{width: '85%', height: 140, borderRadius: 1, marginBottom: 9}} />
