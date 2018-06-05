@@ -28,6 +28,7 @@ const RootStackNavigator = StackNavigator(
       Tabs: {
             screen: MainTabNavigator,
         },
+        
 
   },
   {

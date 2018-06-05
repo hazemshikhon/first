@@ -4,6 +4,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { createStackNavigator, createBottomTabNavigator } from 'react-navigation';
 import { TabNavigator, TabBarBottom } from 'react-navigation';
 
+
 import Colors from '../constants/Colors';
 
 import TabBarIcon from '../components/TabBarIcon';
@@ -14,7 +15,7 @@ import SettingsScreen from '../screens/SettingsScreen';
 export default TabNavigator(
   {
 
-      Home:
+      Meals:
       {
         screen:HomeScreen
       },
@@ -30,11 +31,11 @@ navigationOptions: ({ navigation }) => ({
         const { routeName } = navigation.state;
         let iconName;
         switch (routeName) {
-          case 'Home':
+          case 'Meals':
             iconName =
               Platform.OS === 'ios'
-                ? `ios-home${focused ? '' : '-outline'}`
-                : 'md-home';
+                ? `ios-pizza${focused ? '' : '-outline'}`
+                : 'md-pizza';
             break;
           case 'Settings':
             iconName =

@@ -9,7 +9,7 @@ export default class SingleProductScreen extends React.Component {
             <View style={{flex:.75}}>
                 <Text style={{ textAlign:'center', fontSize:50 , color:'red' , marginBottom:25  }}> {this.props.navigation.state.params.name}</Text>
 
-                <Image style={{height:'40%' , width:'100%' , resizeMode:'cover'}} source={require('../assets/images/one.jpg')}/>
+                <Image style={{height:'40%' , width:'100%' , resizeMode:'cover'}} source={this.props.navigation.state.params.srs}/>
 
                 <Text style={{fontSize:25 , color:'black' , marginTop:30 , textAlign:'center' }} >Price : {this.props.navigation.state.params.price}</Text>
 

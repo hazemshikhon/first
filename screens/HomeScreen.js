@@ -3,9 +3,17 @@ import { Text, View,TouchableOpacity, StyleSheet, Button , Platform, TextInput ,
 import { Ionicons } from '@expo/vector-icons';
 import Colors from '../constants/Colors';
 import MyTouch from '../components/MyTouch';
+import { TabNavigator, NavigationActions } from 'react-navigation';
 export default class HomeScreen extends React.Component {
 
+
+
+
+
+
  render() {
+
+     const {navigation} = this.props
 
      _keyExtractor1 = (item, index) => item.flower1;
      _keyExtractor2 = (item, index) => item.flower2;
@@ -51,7 +59,7 @@ return (
         renderItem={
             ({item}) =>
 
-                <MyTouch type={2} name1={item.name1} photo1={item.photo1} price1={item.price1} key1={item.key1}/>
+                <MyTouch type={2} navigation={this.props.navigation} name1={item.name1} photo1={item.photo1} price1={item.price1} key1={item.key1}/>
 
         }
         >
@@ -77,7 +85,7 @@ return (
             style={{ marginTop:10}}
             renderItem={
                 ({item}) =>
-                <MyTouch type={3} name2={item.name2} photo2={item.photo2} price2={item.price2} key2={item.key2}/>
+                <MyTouch type={3} navigation={this.props.navigation}name2={item.name2} photo2={item.photo2} price2={item.price2} key2={item.key2} srs={item.photo2}/>
             }
             >
             </FlatList>
@@ -104,7 +112,7 @@ return (
                 keyExtractor={this._keyExtractor3}
                 renderItem={
                     ({item}) =>
-                    <MyTouch type={4} name3={item.name3} photo3={item.photo3} price3={item.price3} key3={item.key3}/>
+                    <MyTouch type={4} name3={item.name3} photo3={item.photo3} price3={item.price3} key3={item.key3} navigation={this.props.navigation} />
 
                 }
                 >

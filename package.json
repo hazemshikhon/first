@@ -12,9 +12,23 @@
     "expo": "^27.0.1",
     "react": "16.3.1",
     "react-native": "https://github.com/expo/react-native/archive/sdk-27.0.0.tar.gz",
+    "react-native-vector-icons": "^4.6.0",
     "react-navigation": "2.0.0"
   },
   "devDependencies": {
     "jest-expo": "^27.0.0"
-  }
+  },
+  "name": "chat_service",
+  "version": "1.0.0",
+  "description": "A simple chat service",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hazemshikhon/first.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hazemshikhon/first/issues"
+  },
+  "homepage": "https://github.com/hazemshikhon/first#readme"
 }

@@ -1,13 +1,45 @@
 import React from 'react';
-import { Text, View, TouchableOpacity, StyleSheet, Button , Platform, TextInput , Image } from 'react-native';
+import { Text, View,AsyncStorage, TouchableOpacity, StyleSheet, Button , Platform, TextInput , Image } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import Colors from '../constants/Colors';
 export default class LoginScreen extends React.Component {
+    setLoginStatus = (value) => {
+            AsyncStorage.setItem('login', value);
+            this.setState({ 'login': value });
+        }
+
 
     state = {
         username: '',
         validity:'invalid' ,
         color: 'red'
+
+    }
+    constructor(props) {
+            super(props);
+    AsyncStorage.getItem('SkippedLogin').then(
+            (value) => {
+                this.setState({ 'SkippedLogin': value })
+
+                if(value == '1')
+                {
+                    this.navigateToHome();
+                }
+                else
+                {
+                    AsyncStorage.getItem('login').then(
+                        (logged) => {
+                            this.setState({ 'login': logged })
+
+                            if(logged == '1')
+                            {
+                                this.navigateToHome();
+                            }
+                        }
+                    );
+                }
+            }
+        );
     }
 
     loginUser = () => {
@@ -110,7 +142,14 @@ else {
                     <View style={{flex:1 , flexDirection:'row' , justifyContent:'center' , alignItems:'center' , width:'92%' }}>
                         <TouchableOpacity
                             style={{ backgroundColor:Colors.maincolor, borderRadius:13, padding:15, flex:1 , width:'100%'}}
-                            onPress={ () => this.loginUser() }>
+                            onPress={ () => {
+                                AsyncStorage.setItem('login', '0').then(() => {
+
+                                                AsyncStorage.setItem('SkippedLogin', '1').then(() => {
+
+
+
+                                 this.loginUser() });});}}>
 
                         <Text style={{ color:'white' , textAlign:'center' }}>Enter As Guest</Text>
                         </TouchableOpacity>
