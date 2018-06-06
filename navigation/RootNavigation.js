@@ -11,6 +11,8 @@ import HomeScreen from '../screens/HomeScreen';
 import LoginScreen from '../screens/LoginScreen';
 import MainTabNavigator from './MainTabNavigator';
 import Header from '../components/Header';
+import SignUpScreen from '../screens/SignUpScreen';
+
 
 //import Header from '../components/Header';
 
@@ -24,6 +26,10 @@ const RootStackNavigator = StackNavigator(
       SingleProduct:
       {
           screen:SingleProductScreen
+      },
+      Signup:
+      {
+          screen:SignUpScreen
       },
       Tabs: {
             screen: MainTabNavigator,

@@ -21,18 +21,18 @@ export default class HomeScreen extends React.Component {
 
 var flower1 = [
     {key1:'this pizza very good', name1:'بيتزا مشكل جبن' , price1:'10', photo1:require('../assets/images/one.jpg')},
-    {key1:'this pizza very good' , name1:'بيتزا مشكل لحوم' , price1:'20' , photo1:require('../assets/images/two.jpg')},
-    {key1:'this pizza very good' , name1:'بيتزا خضار' , price1:'5' , photo1:require('../assets/images/three.jpg')}
+    {key1:'this pizza very good' , name1:'بيتزا مشكل لحوم' , price1:'20' , photo1:require('../assets/images/four.jpg')},
+    {key1:'this pizza very good' , name1:'بيتزا خضار' , price1:'5' , photo1:require('../assets/images/five.jpg')}
 ];
 
 var flower2 = [
-    {key2:'this Crepe very good' , name2:'كريب مشكل جبن' , price2:'10' , photo2:require('../assets/images/one.jpg')},
+    {key2:'this Crepe very good' , name2:'كريب مشكل جبن' , price2:'10' , photo2:require('../assets/images/six.jpg')},
     {key2:'this Crepe very good' , name2:'كريب مشكل لحوم ' , price2:'20' , photo2:require('../assets/images/two.jpg')},
-    {key2:'this Crepe very good' , name2:'كريب خضار' , price2:'5' , photo2:require('../assets/images/three.jpg')}
+    {key2:'this Crepe very good' , name2:'كريب خضار' , price2:'5' , photo2:require('../assets/images/seven.jpg')}
 ];
 var flower3 = [
-    {key3:'this sweets very good' , name3:'شيكولاته' , price3:'50', photo3:require('../assets/images/one.jpg')},
-    {key3:'this sweets very good' , name3:'مكسرات' , price3:'200', photo3:require('../assets/images/two.jpg')},
+    {key3:'this sweets very good' , name3:'شيكولاته' , price3:'50', photo3:require('../assets/images/nine.jpg')},
+    {key3:'this sweets very good' , name3:'مكسرات' , price3:'200', photo3:require('../assets/images/ten.jpg')},
     {key3:'this sweets very good' , name3:'كنافه' , price3:'100' , photo3:require('../assets/images/three.jpg')}
 ];
 return (

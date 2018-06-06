@@ -9,8 +9,8 @@ import Colors from '../constants/Colors';
 
 import TabBarIcon from '../components/TabBarIcon';
 import HomeScreen from '../screens/HomeScreen';
-import LinksScreen from '../screens/LinksScreen';
 import SettingsScreen from '../screens/SettingsScreen';
+import BranchesScreen from '../screens/BranchesScreen';
 import Header from '../components/Header';
 
 export default TabNavigator(
@@ -20,6 +20,10 @@ export default TabNavigator(
       {
         screen:HomeScreen
       },
+        Branches:
+        {
+                screen:BranchesScreen,
+        },
         Settings: {
             screen:SettingsScreen,
         },
@@ -41,7 +45,11 @@ navigationOptions: ({ navigation }) => ({
           case 'Settings':
             iconName =
               Platform.OS === 'ios' ? `ios-options${focused ? '' : '-outline'}` : 'md-options';
+              break;
 
+              case 'Branches':
+                iconName =
+                  Platform.OS === 'ios' ? `ios-albums${focused ? '' : '-outline'}` : 'md-albums';
         }
         return (
           <Ionicons
