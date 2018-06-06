@@ -24,10 +24,15 @@ export default class Header extends React.Component {
     constructor(props){
         super(props)
 
-
+        this.state = {
+          searchText: '',
+        }
     }
 
-
+    doSearch = () => {
+            if(this.state.searchText !== '')
+                this.props.nav.navigate("SearchResult", {searchingFor: this.state.searchText});
+        };
 
   render() {
     return (
@@ -35,20 +40,9 @@ export default class Header extends React.Component {
             style={{ maxHeight: 60, flex: .1, flexDirection: 'row', alignItems: 'center', justifyContent: 'center',  backgroundColor: Colors.maincolor , paddingTop: Platform.OS == 'ios' ? 20 : 27 , paddingVertical: 0, paddingHorizontal: 10, }}>
             <TouchableOpacity
                 onPress={ () => {
-                    if(this.props.currentRoute !== "Main")
-                    {
-                        this.props.nav.dispatch(NavigationActions.reset({
-                          index: 0,
-                          actions: [
-                            NavigationActions.navigate({ routeName: 'Main' })
-                          ]
-                        }));
-                    }
-                    else
-                    {
-                        this.props.nav.goBack()
-                    }
+                    this.props.nav.navigate('Meals', { })
                 }}
+                
                 style={{ flex: .6, marginLeft: 0, paddingRight: 60}}>
                 <Image
                   style={{

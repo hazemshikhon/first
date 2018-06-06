@@ -2,6 +2,10 @@ import React from 'react';
 import {View, Text, TouchableOpacity , Image} from 'react-native';
 
 export default class SingleProductScreen extends React.Component {
+
+
+
+    
     render() {
         return (
 
